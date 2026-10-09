@@ -8,8 +8,8 @@ Describe the behavior and scope; link an agreed task only if publicly accessible
 
 ## Verification
 
-- [ ] `make check`
-- [ ] `make verdict` (Bend 2.0.36, Lean 4.34.0)
+- [ ] `just check`
+- [ ] `just verdict` (Bend 2.0.36, Lean 4.34.0)
 - [ ] `git diff --check`
 - [ ] Relevant workflow or integration checks
 

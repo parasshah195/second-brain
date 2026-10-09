@@ -11,7 +11,7 @@ may contain dots. Use descriptive names without private project or task IDs.
 Commit messages describe the change, with no LLM credits, generated-by trailers,
 or AI co-author attribution.
 
-Before committing: run `make check`, inspect the diff, and check for secrets.
+Before committing: run `just check`, inspect the diff, and check for secrets.
 Before landing: ensure acceptance checks pass, review the diff, and ensure no
 concurrent work would be overwritten. Land completed slices regularly through
 GitHub pull requests into `develop`, using merge commits after required checks
