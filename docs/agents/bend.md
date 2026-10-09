@@ -16,9 +16,9 @@ Open claims, unsafe dependencies, foreign assumptions, and `?TODO` are not proof
 
 Run exactly `bend PROOF.bend` before every commit and require ALL PROOFS CHECK.
 Also run `bend PROOF.bend --verdict` for the independent BendTT kernel check;
-`make verdict` requires Lean v4.34.0 or a built kernel via `BENDTT`. If unavailable,
+`just verdict` requires Lean v4.34.0 or a built kernel via `BENDTT`. If unavailable,
 report the blocked independent check; never claim mathematical kernel validity.
-`make check` runs the standard checker. Parallelize balanced computations where
+`just check` runs the standard checker. Parallelize balanced computations where
 useful, not tiny metadata operations.
 
 Proofs cover total pure Bend functions, not disk durability, SQLite/FTS, network

@@ -18,10 +18,10 @@ access to private maintainer tools or documents.
    `feature/<description>`, `bugfix/<description>`, `hotfix/<description>`,
    `release/<version>`, or `chore/<description>`. Use lowercase hyphenated names.
 2. Read [agents.md](agents.md) and the concern-specific instructions it routes to.
-3. Use Bend 2.0.36. Run `bend guide` before modifying Bend code.
+3. Use Bend 2.0.36 and just 1.58.0. Run `bend guide` before modifying Bend code.
 4. Keep changes focused. Preserve validation, security, accessibility, and
    data-loss protection. Obtain maintainer approval before changing existing laws.
-5. Run `make check`, `make verdict` with Lean 4.34.0, and `git diff --check`.
+5. Run `just check`, `just verdict` with Lean 4.34.0, and `git diff --check`.
    Report unavailable checks honestly; CI must pass before integration.
 6. Open a pull request against `develop` describing the problem, change,
    verification, and any remaining limits.

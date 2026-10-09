@@ -22,19 +22,21 @@ See [architecture](docs/architecture.md) for the intended system and boundaries.
 
 ## Verify
 
-Prerequisites: **Bend 2.0.36**, GNU Make, and Linux, macOS, or WSL.
+Prerequisites: **Bend 2.0.36**, **just 1.58.0**, and Linux, macOS, or WSL.
+Install just from [its official release](https://github.com/casey/just/releases/tag/1.58.0)
+and confirm `just --version` matches.
 Install Bend from [its official distribution](https://bend-lang.com/) and confirm
 `bend version` matches. Read `bend guide`, then run:
 
 ```sh
 git clone https://github.com/parasshah195/second-brain.git
 cd second-brain
-make check
+just check
 ```
 
-`make check` runs `bend PROOF.bend`. For independent kernel verification, install
+`just check` runs `bend PROOF.bend`. For independent kernel verification, install
 [Lean 4.34.0](https://github.com/leanprover/lean4/releases/tag/v4.34.0) on your PATH
-(or supply a prebuilt kernel through `BENDTT`) and run `make verdict`.
+(or supply a prebuilt kernel through `BENDTT`) and run `just verdict`.
 Both checks must report `ALL PROOFS CHECK`. CI runs both with pinned toolchains.
 Proofs cover the stated pure metadata laws—not disk durability, model accuracy,
 host integration, or an entire application.
