@@ -1,9 +1,10 @@
 # Product boundaries
 
-Source: https://app.basecamp.com/5660851/buckets/49131676/documents/10391481403
+This is the public architecture summary. Maintainer planning lives in Basecamp.
 
 Second Brain is a desktop-first, local-first library, not a chatbot.
-This repository is a verified domain foundation, not yet a desktop application.
+Only the metadata domain rule is implemented and checked today. The sections
+below describe intended behavior, not available application features.
 
 ## Ownership
 
