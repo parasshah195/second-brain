@@ -1,0 +1,42 @@
+# Contributing
+
+Second Brain is in early development and has no production release. A license
+is pending maintainer approval; please wait for licensing to be resolved before
+submitting third-party code or assuming redistribution rights.
+
+## Proposing work
+
+Planning, decisions, and task ownership are tracked in Basecamp. Maintainers
+translate agreed work into public code reviews. If you do not have Basecamp
+access, discuss a proposal with the maintainer through their
+[GitHub profile](https://github.com/parasshah195) before implementing a large
+change. GitHub Issues and a duplicate public task backlog are not used.
+Pull request discussions should stand alone without private Basecamp access.
+
+## Development
+
+1. Branch from `develop` using [Conventional Branch](https://conventionalbranch.org/):
+   `feature/<description>`, `bugfix/<description>`, `hotfix/<description>`,
+   `release/<version>`, or `chore/<description>`. Use lowercase hyphenated names.
+2. Read [agents.md](agents.md) and the concern-specific instructions it routes to.
+3. Use Bend 2.0.36. Run `bend guide` before modifying Bend code.
+4. Keep changes focused. Preserve validation, security, accessibility, and
+   data-loss protection. Obtain maintainer approval before changing existing laws.
+5. Run `make check`, `make verdict` with Lean 4.34.0, and `git diff --check`.
+   Report unavailable checks honestly; CI must pass before integration.
+6. Open a pull request against `develop` describing the problem, change,
+   verification, and any remaining limits.
+
+Commit messages describe the work and contain no LLM credits or AI co-author
+trailers. Never commit tokens, private vaults, personal metadata, or downloaded
+toolchains. Use synthetic examples for checks.
+
+`main` is production-only; production promotion requires explicit maintainer
+approval. Do not create releases or publish packages as part of ordinary work.
+
+## Conduct
+
+Be respectful and specific in review. Critique code, not people. Harassment,
+discrimination, and disclosure of private information are not acceptable.
+Contact the maintainer privately through their GitHub profile for conduct
+concerns; they may moderate or remove contributions that violate these rules.
