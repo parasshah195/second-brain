@@ -17,7 +17,7 @@ access to private maintainer tools or documents.
 1. Branch from `develop` using [Conventional Branch](https://conventionalbranch.org/):
    `feature/<description>`, `bugfix/<description>`, `hotfix/<description>`,
    `release/<version>`, or `chore/<description>`. Use lowercase hyphenated names.
-2. Read [agents.md](agents.md) and the concern-specific instructions it routes to.
+2. Read [AGENTS.md](AGENTS.md) and the concern-specific instructions it routes to.
 3. Use Bend 2.0.36 and just 1.58.0. Run `bend guide` before modifying Bend code.
 4. Keep changes focused. Preserve validation, security, accessibility, and
    data-loss protection. Obtain maintainer approval before changing existing laws.
