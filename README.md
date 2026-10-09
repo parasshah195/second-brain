@@ -53,6 +53,4 @@ Keep public reviews self-contained and free of private planning information.
 
 ## License
 
-A software license has not yet been selected. Public visibility does not grant
-permission to redistribute or reuse the code. This is not an open-source release
-until the maintainer approves and adds a license.
+Licensed under the [MIT License](LICENSE).

@@ -1,8 +1,8 @@
 # Contributing
 
-Second Brain is in early development and has no production release. A license
-is pending maintainer approval; please wait for licensing to be resolved before
-submitting third-party code or assuming redistribution rights.
+Second Brain is in early development and has no production release.
+Contributions are accepted under the project's [MIT License](LICENSE).
+Submit only code you have the right to contribute under those terms.
 
 ## Proposing work
 
