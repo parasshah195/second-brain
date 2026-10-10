@@ -1,0 +1,67 @@
+name: Verification
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+    branches: [develop, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verification-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  proofs:
+    name: Bend proofs
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      BEND_NO_TELEMETRY: "1"
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install pinned toolchains
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl --proto '=https' --tlsv1.2 -fsSL --retry 3 -o just.tar.gz \
+            https://github.com/casey/just/releases/download/1.58.0/just-1.58.0-x86_64-unknown-linux-musl.tar.gz
+          echo '4a5cc2f53e6f0f8c59092a6cc38291eb729d46a7dd95d3ae582008881b84931d  just.tar.gz' | sha256sum -c -
+          mkdir -p just-bin
+          tar -xzf just.tar.gz -C just-bin just
+          echo "$RUNNER_TEMP/just-bin" >> "$GITHUB_PATH"
+          curl --proto '=https' --tlsv1.2 -fsSL --retry 3 -o bend.tar.gz \
+            https://github.com/bendlang/bend/releases/download/v2.0.36/bend-2.0.36-linux-x64.tar.gz
+          echo '02089dc0eed0fd5fd6d73c74cc9cffcb2c6638dd3b02ae83f7b8cc57fbe381ba  bend.tar.gz' | sha256sum -c -
+          tar -xzf bend.tar.gz
+          echo "$RUNNER_TEMP/bend/bin" >> "$GITHUB_PATH"
+          curl --proto '=https' --tlsv1.2 -fsSL --retry 3 -o lean.zip \
+            https://github.com/leanprover/lean4/releases/download/v4.34.0/lean-4.34.0-linux.zip
+          echo '5f14e0f3762058a529b1598f4355e6787c5f155be1bcce72ae288b9c35e3adb4  lean.zip' | sha256sum -c -
+          unzip -q lean.zip
+          echo "$RUNNER_TEMP/lean-4.34.0-linux/bin" >> "$GITHUB_PATH"
+      - name: Verify laws and independent kernel
+        shell: bash
+        run: |
+          set -euo pipefail
+          just --version
+          bend version
+          lean --version
+          just verdict | tee "$RUNNER_TEMP/proofs.log"
+          test "$(grep -c '^ALL PROOFS CHECK$' "$RUNNER_TEMP/proofs.log")" -eq 2
+          if grep -q 'SOME PROOFS FAIL' "$RUNNER_TEMP/proofs.log"; then exit 1; fi
+          git diff --exit-code
+      - name: Check patch whitespace
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git fetch --no-tags origin "$BASE_SHA"
+          git diff --check "$BASE_SHA" HEAD
