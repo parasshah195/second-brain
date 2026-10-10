@@ -10,6 +10,70 @@ not a chatbot. Native core AI is required and bundled, not an optional add-on.
 Only the metadata domain rule is implemented and checked today. The sections
 below describe intended behavior, not available application features.
 
+## Technical flow
+
+This diagram shows the intended local runtime. Tauri/TypeScript/Rust are
+recommended, while the Bend/native integration remains a decision gate. Only
+the Bend metadata-precedence rule exists today; its proofs do not cover host IO.
+
+```mermaid
+flowchart TD
+    User["User: save, import, edit or search"] --> UI["Thin TypeScript WebView in a Tauri desktop shell"]
+    UI --> Host["Rust host: validate requests and coordinate local IO"]
+
+    subgraph Ingestion["Save and import"]
+        Host --> Writes["Validate paths and perform recoverable vault writes"]
+        Writes --> Vault["Authoritative user vault: Markdown, JSON, hash-addressed assets, collections and iCalendar"]
+        Writes --> Status["Report durable save or registered import; media remains Importing until bytes are safe"]
+        Status --> UI
+    end
+
+    subgraph Enrichment["Bounded background work: outside the save critical path"]
+        Vault --> Jobs["Extraction, previews and validated compression"]
+        Jobs --> AI["Bundled native local AI: automatic tags and embeddings"]
+        Models["Application-owned model packs shared across vaults"] --> AI
+        AI --> Generated["Generated metadata with provenance and source revision"]
+        Generated --> Writes
+        Jobs --> Index["Rebuildable .local/ projections: SQLite/FTS5, vectors and caches"]
+        AI --> Index
+        Vault --> Index
+        External["External vault file changes"] --> Reconcile["Reconcile changes and rebuild affected projections"]
+        Reconcile --> Jobs
+        Reconcile --> Index
+    end
+
+    subgraph Domain["Pure domain boundary"]
+        Host --> Rule["Bend metadata precedence: explicit user assertion wins over inference"]
+        Rule --> Host
+    end
+
+    subgraph Retrieval["Search: models never gate ordinary results"]
+        Host --> Parse["Deterministic query parsing: typed filters, residual text and editable chips"]
+        Parse --> Lexical["On typing: lexical and filter retrieval"]
+        Parse --> Enter["Only on Enter: semantic and visual retrieval"]
+        Index --> Lexical
+        Index --> Enter
+        Models --> Enter
+        Lexical --> Results["Results and library views"]
+        Lexical --> Fusion["On Enter: RRF fusion of available branch ranks"]
+        Enter --> Fusion
+        Fusion --> Results
+        Results --> UI
+    end
+```
+
+- **Source of truth:** the vault owns user intent and generated metadata;
+  `.local/` is disposable, device-local, and excluded from sync. Background work
+  preserves user Markdown, custom tags, corrections and rejections.
+- **Save boundary:** registration is not a completed backup. Extraction,
+  compression and AI run afterwards; compression publishes a new immutable blob
+  and recoverably updates references rather than overwriting an existing asset.
+- **Search boundary:** hard filters constrain each retrieval branch before
+  top-k selection, or require over-fetch/refill. Ordinary browsing and lexical
+  search remain available while models load or are repaired.
+- **Scope:** analysis is offline and local. URL bookmarks do not fetch pages;
+  web capture, mobile clients and sync are deferred and omitted here.
+
 ## Ownership
 
 The user-owned vault is authoritative: `Items/` holds user Markdown, `Assets/`
