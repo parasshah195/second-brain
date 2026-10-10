@@ -30,10 +30,12 @@ Automatic local organisation runs after save without waiting for Enter or blocki
 4. Keep parsing, chips, and cheap lexical feedback responsive. Gate semantic/vision retrieval on Enter and compatible approved local packs. Test LiteRT CPU fallback and each selected execution provider on actual devices; do not promise universal NPU support.
 5. Use WorkManager or another approved native mechanism only within tested background constraints. Describe deferred work, battery restrictions, process death, reboot, stale-job cancellation, and recovery. Device caches remain disposable and rebuildable.
 6. Implement applicable reminder permissions and scheduling with explicit reboot and delivery limitations. Resolve external edits and provider conflicts without silently losing assertions. Only if future page capture is selected, add T20/T21 as applicable blockers and keep snapshot viewing inert, unprivileged, and remote-denied; no viewer is required for current URL bookmarks.
-7. Apply T19's default-on lossy compression and persistent prospective disable
-   setting to native/SAF imports. Preserve all metadata, retain input on
-   unsupported/unverifiable encoder output, and bind policy/hash revisions to
-   each import. A preference change never silently rewrites the existing vault.
+7. Apply T19's exact original-file/source-byte preservation default and optional
+   lossless setting, disabled by default and prospective only, to native/SAF
+   imports. Preserve all metadata, decoded content and familiar formats; retain
+   exact input bytes for unsupported, unverifiable, non-saving and signed inputs.
+   Bind policy/hash revisions to each import. No canonical lossy compression or
+   retroactive recompression after preference changes/upgrades.
 
 ## Acceptance criteria
 
@@ -43,16 +45,18 @@ Automatic local organisation runs after save without waiting for Enter or blocki
 - [ ] Custom assertions survive external reconciliation and repeated enrichment.
 - [ ] Required core native CPU fallback and selected accelerators have measured capability records; Enter-only queries and automatic post-save organisation match desktop behavior.
 - [ ] Reminder behavior after reboot, denied permission, and background restriction is accurately reported.
-- [ ] Compression settings/fidelity/fail-safe retention pass, and useful core-AI quality is measured on actual stored default-compressed content.
+- [ ] Original-byte default/optional-lossless settings, metadata/decoded-content/format fidelity and fail-safe retention pass; useful core-AI quality is measured on default original content and actual optional losslessly stored content.
 
 ## Validation
 
 On real approved devices and providers, run synthetic share imports, fill storage, revoke grants, terminate the process, reboot, restrict background execution, move folders, and edit files externally. Inspect authoritative files after recovery and rebuild caches with networking denied and bundled core AI installed. Measure automatic organisation and Enter-only retrieval; additionally remove/corrupt core weights to test visible degraded recovery and repair. Record OS, SDK, hardware, precision, recall, coverage/abstention, latency, memory, and power evidence for native CPU fallback and selected accelerators. Run `just check`, `just verdict`, and `git diff --check`, reporting unavailable kernel verification honestly.
 
-Test metadata-rich native encoding through supported providers, on/off preference
-persistence, disabled new-import byte preservation, failed/unverifiable candidates
-and unchanged existing assets after a setting change. Use stored compressed input
-for AI quality evidence rather than only pristine source files.
+Test metadata-rich native lossless optimisation through supported providers,
+on/off preference persistence and exact new-import byte preservation by default/
+when disabled. Retain exact input bytes for unsupported, unverifiable, non-saving
+and signed inputs; verify unchanged existing assets after settings changes/upgrades.
+Use default original content and actual optional losslessly stored content for
+AI quality evidence.
 
 ## Out of scope
 

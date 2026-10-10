@@ -29,7 +29,7 @@ flowchart TD
     end
 
     subgraph Enrichment["Bounded background work: outside the save critical path"]
-        Vault --> Jobs["Extraction, previews and validated compression"]
+        Vault --> Jobs["Extraction, previews and optional validated lossless compression"]
         Jobs --> AI["Bundled native local AI: automatic tags and embeddings"]
         Models["Application-owned model packs shared across vaults"] --> AI
         AI --> Generated["Generated metadata with provenance and source revision"]
@@ -65,9 +65,10 @@ flowchart TD
 - **Source of truth:** the vault owns user intent and generated metadata;
   `.local/` is disposable, device-local, and excluded from sync. Background work
   preserves user Markdown, custom tags, corrections and rejections.
-- **Save boundary:** registration is not a completed backup. Extraction,
-  compression and AI run afterwards; compression publishes a new immutable blob
-  and recoverably updates references rather than overwriting an existing asset.
+- **Save boundary:** registration is not a completed backup. Exact original-file/
+  source-byte preservation is the default. Extraction, optional lossless
+  compression and AI run afterwards; enabled compression publishes a new immutable
+  blob and recoverably updates references rather than overwriting an existing asset.
 - **Search boundary:** hard filters constrain each retrieval branch before
   top-k selection, or require over-fetch/refill. Ordinary browsing and lexical
   search remain available while models load or are repaired.
@@ -123,11 +124,13 @@ it directly; decide the tested Bend/native boundary before building a shell.
 Do not claim Bend proofs verify Rust or host IO. No shell/model dependencies
 are included merely for future use.
 
-Lossy compression is enabled by default and preserves all metadata. A setting
-disables it for subsequent imports. Supported profiles require integrity,
-metadata and compressed-content AI-quality validation; unsupported/unverifiable
-candidates retain input. Preference changes do not silently rewrite the vault or
-restore discarded information. Hash-addressed blobs are immutable;
+Exact original-file/source-byte preservation is the default. Lossless compression
+is an optional setting, disabled by default, for subsequent imports only.
+No canonical lossy compression is approved. Enabled profiles must preserve all
+metadata, decoded content and familiar formats, with integrity and AI-quality
+validation. Unsupported, unverifiable, non-saving or signed inputs retain exact
+input bytes. Preference changes and upgrades never retroactively recompress the
+vault. Hash-addressed blobs are immutable;
 publish a new blob and recoverably update references before garbage collection.
 Web capture, imported snapshots and their viewer are deferred. Current URL
 bookmarks store URL/user-provided title/notes without page acquisition.
@@ -136,7 +139,8 @@ Deletion recovery/retention, launch scope, runtime integration and distribution
 remain explicit decision gates.
 
 Deliver development slices in dependency order, but require bundled native AI,
-automatic organisation and validated default compression before release.
+automatic organisation and qualified original-byte/optional-lossless storage
+before release.
 Specialised media/generation, web capture, mobile and sync have later scoped work.
 Measure organisation precision/recall/coverage, latency, RAM and disk use.
 The source's SLOs are targets, not verified promises.

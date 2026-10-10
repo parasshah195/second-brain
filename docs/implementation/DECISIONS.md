@@ -2,8 +2,9 @@
 
 The owner has confirmed **innate native local AI bundled with the product**,
 **Enter-triggered semantic/visual retrieval**, **automatic tags that never
-overwrite or remove custom user tags**, **lossy compression on by default with
-all metadata preserved and a disable setting**, and **web capture deferred**.
+overwrite or remove custom user tags**, **exact original-file/source-byte preservation
+by default with optional lossless compression disabled by default**, **no canonical
+lossy compression approved**, and **web capture deferred**.
 The project code is licensed under **MIT**, verified on `develop`.
 These are settled requirements, not open questions.
 
@@ -89,24 +90,28 @@ media/OCR/generation remain separate scope choices.
 reference hardware, UI/query/content languages and explicit deferred features.
 The task DAG covers the full vision; it is not a promise all tasks ship together.
 
-### D04 — Default lossy compression; remaining quality/format details
+### D04 — Original-file preservation by default; optional lossless compression
 
-**Status:** lossy compression on by default, preservation of all metadata and a
-disable setting are confirmed. **Gates:** T19's profile/format details and T40 evidence.
+**Status:** owner-confirmed: exact original-file/source-byte preservation is the
+default; lossless compression is an optional setting disabled by default. No
+canonical lossy compression is approved. **Gates:** T19's lossless profile/format
+details and T40 evidence.
 
-**Plain English:** storage can discard some media information, but must preserve
-all embedded metadata and user/source provenance. Disabling lossy compression
-protects subsequent imports; it cannot recover information already discarded.
+**Plain English:** imports normally retain the exact original file bytes. An
+explicitly enabled lossless optimisation may change encoded bytes only if all
+decoded content, embedded metadata, user/source provenance and familiar formats
+are preserved. This does not authorise lossy canonical storage.
 
 **Recommendation:** record the setting/profile on each import; do not automatically
-rewrite existing assets after a preference change. Validate every metadata block
-and field, including GPS/times/orientation/ICC/custom or unknown fields, before
-committing a new hashed candidate. If fidelity or integrity cannot be established,
-keep the input. Do not invalidate signed documents or silently convert formats.
+rewrite existing assets after a preference change or upgrade. Validate decoded
+content and every metadata block and field, including GPS/times/orientation/ICC/
+custom or unknown fields, before committing a new hashed candidate. Keep exact
+input bytes for unsupported, unverifiable, non-saving or signed inputs. Do not
+invalidate signatures or silently convert formats. No retroactive recompression.
 
-**Record:** eligible types, encoder/quality profiles, metadata/integrity comparison,
+**Record:** eligible types, lossless profiles, metadata/decoded-content/integrity comparison,
 savings/CPU limits and source-to-stored provenance. Benchmark AI precision/coverage
-on the default-compressed representation as well as source fixtures.
+on default original content and actual optional losslessly stored content.
 
 ### D05 — Delete, undo, Trash and retained versions
 
@@ -191,8 +196,9 @@ core model only for measured necessary coverage, with owner approval. Bundle
 required weights/runtime in the normal offline installer, shared outside vaults;
 no extra download is required to become AI-powered.
 
-Measure held-out precision, recall, useful coverage/abstention and default-compressed
-content quality alongside latency/RAM/installed size. Select a tested native/CPU
+Measure held-out precision, recall, useful coverage/abstention and quality on
+default original content and optional losslessly stored content alongside
+latency/RAM/installed size. Select a tested native/CPU
 fallback on supported hardware, independent of OS-native intelligence availability.
 Specialised speech/OCR/generation may be later extras; core AI is not optional.
 

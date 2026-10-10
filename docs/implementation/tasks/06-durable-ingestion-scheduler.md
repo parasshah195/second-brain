@@ -15,7 +15,8 @@ Save notes, URL bookmarks and import intents quickly, then complete durable
 asset/enrichment work through restart-safe, revision-aware jobs.
 
 ## Context and constraints
-AI, compression and full downloads are outside the save critical path.
+AI, optional lossless compression and full downloads are outside the save
+critical path.
 Required core AI autoorganises after ingestion; it is not an optional product
 tier. Cold/faulted AI has visible degraded status and repair without blocking
 durable saves. The meaningful job state is canonical; a SQLite queue is reconstructible.
@@ -36,8 +37,10 @@ Existing-vault save/browse works without models or network.
 5. Implement small bounded scheduling with interactive priority, cancellation,
    pause/resume where feasible and idle-zero expensive work. Respect resource/
    battery/thermal pressure where supported; expose actual capability limits.
-6. Register extraction, previews, default metadata-safe compression and required
-   core inference as background stages. Failure does not make durable saves fail,
+6. Register extraction, previews, explicitly enabled optional lossless compression
+   (disabled by default) and required core inference as background stages.
+   Default/disabled imports preserve exact source bytes. Failure does not make
+   durable saves fail,
    but organisation readiness is honest. URL bookmarks never fetch/archive pages;
    capture T20/T21 is explicitly deferred.
 

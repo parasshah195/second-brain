@@ -30,10 +30,12 @@ Automatic local organisation runs after save without waiting for Enter or blocki
 4. Keep parsing, chips, and cheap lexical feedback live. Start semantic or vision query retrieval only on Enter with compatible bundled core weights. Missing core weights leave deterministic recovery usable with visible degraded health and repair; no hidden download or cloud inference path.
 5. Handle suspension, termination, revoked access, stale enrichment jobs, external edits, and provider conflicts through accepted durable recovery and reconciliation rules. Jobs must not overwrite newer user assertions.
 6. Record platform limits for sharing, clipboard access, notifications, and document providers instead of promising unavailable behavior. Only if future page capture is selected, add T20/T21 as applicable blockers and display captured HTML through an inert, unprivileged, remote-denied viewer; no viewer is required for current URL bookmarks.
-7. Inherit T19's default-on lossy policy and persistent prospective disable setting.
-   Validate all embedded/canonical metadata on native encoder outputs; retain
-   input when fidelity is unsupported/unverifiable. Record import policy/hash
-   revisions and never spontaneously recompress existing data.
+7. Inherit T19's exact original-file/source-byte preservation default and optional
+   lossless setting, disabled by default and prospective only. Validate all
+   embedded/canonical metadata, decoded content and familiar formats on native
+   outputs; retain exact input bytes for unsupported, unverifiable, non-saving
+   and signed inputs. Record import policy/hash revisions; no canonical lossy
+   compression or retroactive recompression.
 
 ## Acceptance criteria
 
@@ -43,15 +45,17 @@ Automatic local organisation runs after save without waiting for Enter or blocki
 - [ ] Revocation and stale jobs do not corrupt authoritative content.
 - [ ] Enter-only query retrieval, automatic post-save organisation and hard-filter constraints match the desktop contract.
 - [ ] Reminder and background features expose permissions and tested limitations.
-- [ ] Mobile compression on/off, metadata fidelity and fail-safe input retention pass; core organisation meets quality gates on the actual stored default-compressed representation.
+- [ ] Mobile original-byte default/optional-lossless settings, metadata/decoded-content/format fidelity and fail-safe input retention pass; core organisation meets quality gates on default original content and actual optional losslessly stored content.
 
 ## Validation
 
 On actual approved devices and SDK builds, exercise sharing, suspension, process termination, low storage, permission revocation, moved folders, provider unavailability, and conflicting external edits using synthetic data. Deny networking and run the full workflow with bundled core AI, including automatic organisation and Enter-only queries; additionally remove/corrupt core weights and test degraded recovery and repair. Record device, OS, SDK, provider, precision, recall, coverage/abstention, latency, memory, and recovery evidence. Run `just check`, `just verdict`, and `git diff --check`; domain checks do not prove platform behavior.
 
-Exercise native metadata-rich compression, toggle persistence and new-import byte
-preservation when disabled. Reject metadata-unverifiable candidates, check unchanged
-existing assets after preference changes and measure AI on stored compressed inputs.
+Exercise native metadata-rich lossless optimisation, toggle persistence and exact
+new-import source-byte preservation by default/when disabled. Retain exact input
+bytes for unsupported, unverifiable, non-saving and signed inputs; check unchanged
+existing assets after preference changes/upgrades and measure AI on default
+original content and actual optional losslessly stored content.
 
 ## Out of scope
 

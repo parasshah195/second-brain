@@ -20,8 +20,11 @@ Only the Bend metadata rule and proofs exist initially. Browser processing and i
 
 Future Captures holds HTML/manifests referencing shared Assets; Metadata JSON
 records provenance/state and Items Markdown retains user text. Resource ingestion
-follows recorded default lossy-on/all-metadata preservation or disabled byte
-preservation. `.local` is disposable; required core weights remain app-shared.
+follows recorded original-byte preservation by default or explicitly enabled
+optional lossless compression preserving all metadata, decoded content and familiar
+formats. Unsupported, unverifiable, non-saving and signed inputs retain exact
+input bytes; no retroactive recompression. `.local` is disposable; required core
+weights remain app-shared.
 
 ## Implementation scope
 1. Compare a minimal approved browser adapter with continued imported snapshots. Record capability, licence, security, packaging, and resource-cost evidence for owner review. Add the dependency only after approval; document unavailable-adapter behavior.

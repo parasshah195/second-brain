@@ -10,7 +10,7 @@ T33, T34.
 
 ## Decision gates
 
-D03 approves launch scope; D11 approves distribution. Application code licensing is verified MIT; retain its notices without reopening selection. The accepted capability manifest must account for every other applicable decision: D01 owner-controlled pure laws, D02 Bend/native execution, D04 default compression/settings and implementation limits, D05 retention, D06 future capture implementation, D07 smart behavior, D08 reminders, D09 packs, D10 budgets, D12 mobile, and D13 sync/security. Explaining domain laws is not approval to revise them. Third-party model/codec/dependency rights remain separate from MIT code licensing. Unaccepted applicable gates block readiness.
+D03 approves launch scope; D11 approves distribution. Application code licensing is verified MIT; retain its notices without reopening selection. The accepted capability manifest must account for every other applicable decision: D01 owner-controlled pure laws, D02 Bend/native execution, D04 original-byte default/optional-lossless settings and implementation limits, D05 retention, D06 future capture implementation, D07 smart behavior, D08 reminders, D09 packs, D10 budgets, D12 mobile, and D13 sync/security. Explaining domain laws is not approval to revise them. Third-party model/codec/dependency rights remain separate from MIT code licensing. Unaccepted applicable gates block readiness.
 
 ## Outcome
 
@@ -31,7 +31,7 @@ desktop-only candidate.
 1. Assemble a versioned capability manifest listing supported platforms, source types, retrieval branches, model packs, reminder behavior, recovery guarantees, and unavailable features. Link each claim to actual evidence and its accepted decision; do not imply every intended product facet exists.
 2. Review pure-law checker results, independent-kernel results, execution-seam conformance, host CI, security faults, offline workflows, accessibility, relevance, and measured latency/resource budgets separately. Describe proof boundaries and unresolved assumptions.
 3. Validate fresh-machine normal and full air-gap installation with bundled verified core weights/runtime. Measure automatic post-save organisation, precision, recall, coverage/abstention, relevance, latency and native CPU fallback on supported hardware. Additionally remove/corrupt core weights and verify visible degraded health, repair, save/browse, lexical/filter rebuild and moved-vault restore without network. Optional extra pack installation must be explicit and verifiable.
-4. Exercise backup/restore, purge and deletion retention, shared references, custom tags, automatic provenance, corrections, rejections, and notes across restart and upgrade. Test default-enabled lossy compression preserving all metadata and the settings option disabling it with input byte-preservation. Confirm failures retain input, stored assets survive recovery unchanged, and upgrades/settings changes never spontaneously recompress existing vault content.
+4. Exercise backup/restore, purge and deletion retention, shared references, custom tags, automatic provenance, corrections, rejections, and notes across restart and upgrade. Test exact original-file/source-byte preservation by default and optional lossless compression disabled by default. Enabled lossless output must preserve all metadata, decoded content and familiar formats. Confirm unsupported, unverifiable, non-saving and signed inputs retain exact input bytes, stored assets survive recovery unchanged, and upgrades/settings changes never retroactively recompress existing vault content. No canonical lossy compression is approved.
 5. Review actual software/model/codec licenses, notices, SBOM, artifact hashes, signing and notarization status, and uninstall behavior. Identify the eligible human reviewer needed for production-branch approval without bypassing protection.
 6. Present failed gates, known limitations, rollback/recovery guidance, and a recommended scope decision. Obtain explicit owner approval for release publication and production promotion; ordinary task closure is not release authorization.
 
@@ -43,7 +43,7 @@ desktop-only candidate.
 - [ ] Additional model-free recovery tests pass on approved hosts with visible degraded health and actionable repair.
 - [ ] User assertions survive purge/delete scenarios where retention requires preservation.
 - [ ] Model and signing rights are approved for the exact distributed artifacts; verified MIT application notices are retained.
-- [ ] Default lossy compression preserves all metadata and passes core quality gates on stored compressed content; the off setting preserves input bytes, failures retain input, and no spontaneous retroactive vault recompression occurs.
+- [ ] Exact original-file/source-byte preservation is the default; optional lossless compression is disabled by default and preserves all metadata, decoded content and familiar formats. Core quality gates pass on default original content and actual optional losslessly stored content. Unsupported, unverifiable, non-saving and signed inputs retain exact input bytes; no canonical lossy compression or retroactive vault recompression is approved.
 - [ ] Optional mobile/sync inclusion has all applicable predecessor evidence.
 - [ ] Owner decision and required human review are recorded without automated launch or publication.
 

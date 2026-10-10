@@ -12,7 +12,8 @@ D02 approves the tested Bend/native execution seam. D03 approves target platform
 ## Outcome
 A foundation Tauri 2 development slice opens a vault, imports durably and browses
 offline using a real backend. It is not a completed AI-powered release until
-required bundled core AI and default compression are integrated and qualified.
+required bundled core AI and original-byte/optional-lossless storage are
+integrated and qualified.
 
 ## Context and constraints
 Use a thin TypeScript system-WebView interface and Rust host IO. Choose the simplest adequate UI approach rather than introducing a framework for anticipated future screens. No application shell or Rust host is currently implemented: only the Bend pure metadata rule and its proofs exist. Proofs cover those laws, not commands, filesystem operations, or a native bridge.
@@ -22,8 +23,9 @@ Collections and Reminders. Captures HTML/resource manifests are deferred with
 T20 and are not created/implemented by this shell. `.local` is device-local and
 disposable; required core weights belong outside vaults and are app-shared.
 
-The foundation stages verified source bytes; T19 applies the effective default
-lossy policy while preserving all metadata. Save/browse/lexical work survives
+The foundation stores exact original-file/source bytes by default; T19 offers
+optional lossless compression, disabled by default, preserving all metadata,
+decoded content and familiar formats. Save/browse/lexical work survives
 core-AI cold/fault recovery, not as a complete model-free release tier.
 
 ## Implementation scope

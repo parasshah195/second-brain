@@ -40,7 +40,7 @@ The normal installer bundles verified required core weights and minimal native r
 - [ ] Air-gap installation includes required core AI and reports actual package/model sizes, rights and measured quality; optional additions are separate from the required minimum.
 - [ ] Upgrade and uninstall preserve authoritative vault state and referenced shared packs.
 - [ ] Signing status and every blocked distribution right are explicit; verified MIT application notices are retained.
-- [ ] Installed default-enabled lossy compression preserves all metadata and meets core AI quality gates on stored compressed content. Its settings option disables compression with input byte-preservation; failures retain input and upgrades/settings changes never spontaneously recompress existing vault assets.
+- [ ] Installed imports preserve exact original-file/source bytes by default; optional lossless compression is disabled by default and preserves all metadata, decoded content and familiar formats. Core AI quality gates pass on default original content and actual optional losslessly stored content. Unsupported, unverifiable, non-saving and signed inputs retain exact input bytes; no canonical lossy compression is approved and upgrades/settings changes never retroactively recompress existing vault assets.
 
 ## Validation
 

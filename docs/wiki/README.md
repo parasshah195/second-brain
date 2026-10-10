@@ -19,8 +19,10 @@ issues. Agents need no access to a separate planning service.
 **Confirmed scope:** the normal installer includes the smallest, fastest
 meaningful local model/runtime that meets measured organisation precision and
 quality. Prefer one compact model; additional core models need demonstrated
-necessity and approval. Lossy compression is enabled by default while preserving
-all metadata, with a setting to disable it. Web-page capture is deferred; ordinary
+necessity and approval. Exact original-file/source-byte preservation is the
+default. Optional lossless compression is disabled by default and must preserve
+all metadata, decoded content and familiar formats. No canonical lossy compression
+is approved. Web-page capture is deferred; ordinary
 URL bookmarks store the URL and user-provided title/notes without fetching pages.
 
 ## 1. The system in plain English
@@ -43,8 +45,9 @@ in a visibly degraded state; it is not a complete product tier.
 
 The authoritative data is a normal folder, called a **vault**. Notes are Markdown,
 metadata is versioned JSON, reminders use iCalendar, and stored media remains in
-supported familiar formats with all metadata preserved. Default lossy compression
-may change media content/bytes; disabling it preserves newly imported source bytes.
+supported familiar formats with all metadata preserved. Imports preserve exact
+original-file/source bytes by default; explicitly enabled lossless compression
+may change encoded bytes but never decoded content or metadata.
 HTML snapshots and captured resources are a future capability, not current work.
 
 The application keeps a disposable search database and previews around those
@@ -264,29 +267,33 @@ filename; one hash identifies one physical blob. Keep source filenames on each
 logical reference. Perceptual similarity produces a relationship, not physical
 deduplication.
 
-### Default lossy compression and metadata preservation
+### Original-file preservation and optional lossless compression
 
-**Lossy compression is enabled by default.** It may change encoded bytes and
-decoded media content; it must preserve **all metadata**, including embedded
-EXIF/XMP/GPS, capture times, author/copyright, orientation, ICC profiles and
-unknown/private metadata blocks, alongside canonical provenance.
+**Exact original-file/source-byte preservation is the default.** Optional
+lossless compression is **disabled by default**. If explicitly enabled, it may
+change encoded bytes but must preserve all decoded content and **all metadata**,
+including embedded EXIF/XMP/GPS, capture times, author/copyright, orientation,
+ICC profiles and unknown/private metadata blocks, alongside canonical provenance.
 
-A setting disables lossy compression for subsequent imports, preserving their
-source bytes. Changing that preference does not silently recompress the existing
-vault, and disabling it cannot reconstruct information already discarded by
-earlier lossy compression. UI and provenance must make this distinction explicit.
-Do not retain a hidden full original by default and claim compression saved space.
+A persisted setting enables lossless compression for subsequent imports only.
+Default/disabled imports keep exact source bytes. Changing that preference or
+upgrading never retroactively recompresses the existing vault. UI and provenance
+must distinguish original-byte storage from optional losslessly optimised storage.
+No canonical lossy compression is approved. Do not retain hidden duplicate
+originals and claim compression saved space.
 
-Exact eligible formats, encoders and quality levels need measurement/approval.
+Exact eligible formats, encoders and lossless profiles need measurement/approval.
 Preserve supported formats and geometry; do not silently convert containers,
 invalidate signed documents or discard unknown metadata. If the candidate's
-metadata fidelity, integrity or organisation quality cannot be validated, retain
-the input and report the skipped/failed optimisation.
+metadata fidelity, decoded-content equality, integrity or organisation quality
+cannot be validated, retain exact input bytes and report the skipped/failed
+optimisation. Unsupported, unverifiable, non-saving and signed inputs retain
+exact input bytes; only verified useful savings justify publishing a candidate.
 
 Publish an optimised candidate at a **new** content hash, durably update only
 policy-eligible references, and retain the old blob while referenced. Items
-imported with lossy compression disabled keep their original reference. If safe reference accounting or validation
-cannot be established, keep the source.
+imported with lossless compression disabled keep their original reference. If safe
+reference accounting or validation cannot be established, keep exact source bytes.
 
 Previews and extracted caches can be compressed aggressively because they are
 rebuildable. Distinguish canonical bytes, reclaimable caches and installed model
@@ -456,9 +463,9 @@ Known ontology text vectors can be
 cached per version; free-text visual queries still need the text encoder.
 Include both encoders in package/RAM budgets.
 
-Qualify the core on independent representative items, including the actual
-default-compressed stored content. Measure precision, recall, useful coverage,
-abstention/error handling, language support, cold/warm latency, RAM and installed
+Qualify the core on independent representative items, including default original
+content and actual optional losslessly stored content. Measure precision, recall,
+useful coverage, abstention/error handling, language support, cold/warm latency, RAM and installed
 size. A tiny model that organises poorly, or tags nothing to appear precise,
 does not pass the release gate.
 
@@ -568,9 +575,10 @@ No chosen hardware, numerical cache budget or proven SLO exists yet.
 4. Deliver desktop browsing, Spaces, reminders and previews as development slices.
 5. Integrate the required bundled core model, automatic organisation, compatible
    semantic/visual representations and Enter/RRF.
-6. Implement default lossy compression with metadata fidelity and its disable setting.
-7. Qualify the AI-powered product, compressed-content organisation, portability
-   and packaging; a model-free milestone is not a completed release.
+6. Implement original-byte storage by default and optional lossless compression,
+   disabled by default, with metadata/decoded-content fidelity and safe fallback.
+7. Qualify the AI-powered product on default original and optional lossless content,
+   portability and packaging; a model-free milestone is not a completed release.
 8. Expand specialised media/OCR/generation, Explore, future web capture, mobile
    and optional sync according to their approved scopes and gates.
 
