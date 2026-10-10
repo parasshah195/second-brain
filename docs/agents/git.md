@@ -11,7 +11,7 @@ may contain dots. Use descriptive names without private project or task IDs.
 Commit messages describe the change, with no LLM credits, generated-by trailers,
 or AI co-author attribution.
 
-Before committing: run `make check`, inspect the diff, and check for secrets.
+Before committing: run `just check`, inspect the diff, and check for secrets.
 Before landing: ensure acceptance checks pass, review the diff, and ensure no
 concurrent work would be overwritten. Land completed slices regularly through
 GitHub pull requests into `develop`, using merge commits after required checks
@@ -31,8 +31,9 @@ Public hosting: `origin` is https://github.com/parasshah195/second-brain.git.
 Use pull requests targeting `develop` and satisfy the required checks before
 merging. Keep security reports private and exclude private planning content,
 user data, and credentials from public diffs and descriptions. Keep contributor
-commit messages free of LLM attribution. GitHub Issues are disabled; agree on
-substantial proposals with the maintainer before implementing them.
+commit messages free of LLM attribution. GitHub Issues track the agreed execution
+plan; read `docs/implementation/README.md`, check the issue's dependencies and
+decision gates, and keep scope and verification evidence with its public issue.
 
 Both branches require up-to-date proof checks, resolved review conversations, and
 pull requests; force pushes and deletion are blocked, including for administrators.

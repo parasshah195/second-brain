@@ -2,9 +2,11 @@
 
 [![Verification](https://github.com/parasshah195/second-brain/actions/workflows/verify.yml/badge.svg?branch=develop)](https://github.com/parasshah195/second-brain/actions/workflows/verify.yml)
 
-A desktop-first information library designed around a user-owned folder:
-portable notes, original media, and local search. The goal is to keep your
-library useful without cloud accounts, generative models, or the application.
+A desktop-first, AI-powered self-organising library around a user-owned folder.
+The normal app ships with meaningful compact native local AI, not a cloud service
+or optional AI add-on. Notes, metadata and stored media remain portable without
+the application. Default lossy compression preserves all metadata and can be
+disabled in settings. Web capture is deferred; URL bookmarks remain supported.
 
 **Status: early development. There is no installable application or production
 release yet.** `develop` is the default development branch; `main` is reserved
@@ -20,21 +22,35 @@ implementation. The initial laws await maintainer approval.
 Vault persistence, search, desktop UI, and model integration are not implemented.
 See [architecture](docs/architecture.md) for the intended system and boundaries.
 
+## System wiki and execution plan
+
+- [How the system works](docs/wiki/README.md): plain-English workflows and
+  technical contracts.
+- [Ordered implementation tasks](docs/implementation/README.md): GitHub issues,
+  prerequisites, acceptance criteria and handoffs.
+- [Pending decisions and recommendations](docs/implementation/DECISIONS.md):
+  owner approvals required before gated work.
+
+The task system describes planned work, not delivered capabilities. Implement
+ready slices from `develop`; keep optional future features out of earlier tasks.
+
 ## Verify
 
-Prerequisites: **Bend 2.0.36**, GNU Make, and Linux, macOS, or WSL.
+Prerequisites: **Bend 2.0.36**, **just 1.58.0**, and Linux, macOS, or WSL.
+Install just from [its official release](https://github.com/casey/just/releases/tag/1.58.0)
+and confirm `just --version` matches.
 Install Bend from [its official distribution](https://bend-lang.com/) and confirm
 `bend version` matches. Read `bend guide`, then run:
 
 ```sh
 git clone https://github.com/parasshah195/second-brain.git
 cd second-brain
-make check
+just check
 ```
 
-`make check` runs `bend PROOF.bend`. For independent kernel verification, install
+`just check` runs `bend PROOF.bend`. For independent kernel verification, install
 [Lean 4.34.0](https://github.com/leanprover/lean4/releases/tag/v4.34.0) on your PATH
-(or supply a prebuilt kernel through `BENDTT`) and run `make verdict`.
+(or supply a prebuilt kernel through `BENDTT`) and run `just verdict`.
 Both checks must report `ALL PROOFS CHECK`. CI runs both with pinned toolchains.
 Proofs cover the stated pure metadata laws—not disk durability, model accuracy,
 host integration, or an entire application.
@@ -51,6 +67,6 @@ Keep public reviews self-contained and free of private planning information.
 
 ## License
 
-A software license has not yet been selected. Public visibility does not grant
-permission to redistribute or reuse the code. This is not an open-source release
-until the maintainer approves and adds a license.
+Licensed under the [MIT License](https://github.com/parasshah195/second-brain/blob/develop/LICENSE),
+already committed on `develop`. Third-party model weights, codecs and runtimes
+retain their separate distribution requirements.

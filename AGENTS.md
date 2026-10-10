@@ -15,9 +15,10 @@ check for non-trivial logic.
 - Before changing Bend code, laws, proofs, or verification, read `docs/agents/bend.md`.
 - Before changing storage, search, ingestion, AI, or UI architecture, read
   `docs/architecture.md`.
+- Before executing a GitHub issue, read `docs/implementation/README.md`, its task
+  brief, and the decision gates listed for that task. Start only ready work.
 - Before public contributions or security reports, read `CONTRIBUTING.md` and
-  `SECURITY.md`. Read `agents.md` explicitly; lowercase filenames are not
-  automatically discovered by every agent tool.
+  `SECURITY.md`.
 
 Keep private maintainer workflow and project identifiers outside this repository.
 Report actual checks and their limits; a proof covers its stated law, not the
