@@ -8,7 +8,9 @@ check for non-trivial logic.
 - For all coding work, load and follow the `ponytail` skill if available on the
   machine, including implementation, fixes, refactoring, design, and code review.
   If unavailable, follow the minimal-change rules above without installing it.
-- Before Git operations or landing work, read `docs/agents/git.md`.
+- Before editing in a new AI thread or performing Git operations, read
+  `docs/agents/git.md`. New work defaults to current `origin/develop`, not `main`,
+  unless the user explicitly selects another branch.
 - Before maintainer work, load the `second-brain-local` skill if installed on this
   machine. It contains machine-local context; never copy its contents into Git,
   branch names, public reviews, or logs. Contributors do not need that skill.

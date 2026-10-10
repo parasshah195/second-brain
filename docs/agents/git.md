@@ -11,6 +11,26 @@ may contain dots. Use descriptive names without private project or task IDs.
 Commit messages describe the change, with no LLM credits, generated-by trailers,
 or AI co-author attribution.
 
+## New AI thread startup
+
+1. Honor an explicit branch or resume request. Otherwise, use current
+   `origin/develop` as the base, regardless of the inherited checkout branch.
+2. Check `git status --short --branch` and `git remote -v`. Pause before switching
+   if there are uncommitted changes or in-progress work; preserve them.
+3. Verify `origin` points to this project's GitHub repository. If absent, add
+   `https://github.com/parasshah195/second-brain.git` as `origin` in the attached
+   worktree only. If it points elsewhere, ask rather than replacing it.
+4. Run `git fetch origin develop`, then create the task branch with
+   `git switch -c <type>/<description> origin/develop` before editing. Do not use
+   an empty `main` or a stale local `develop` as a substitute. If fetching fails,
+   report the blocker instead of silently using stale history.
+5. Read `AGENTS.md` and the applicable instructions from that base. If the
+   starting checkout is empty, retrieve `origin/develop:AGENTS.md` with `git show`
+   before concluding that instructions are missing. Never initialize a separate
+   root history to work around an empty checkout.
+
+## Integration
+
 Before committing: run `just check`, inspect the diff, and check for secrets.
 Before landing: ensure acceptance checks pass, review the diff, and ensure no
 concurrent work would be overwritten. Land completed slices regularly through
