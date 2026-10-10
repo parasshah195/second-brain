@@ -2,9 +2,11 @@
 
 [![Verification](https://github.com/parasshah195/second-brain/actions/workflows/verify.yml/badge.svg?branch=develop)](https://github.com/parasshah195/second-brain/actions/workflows/verify.yml)
 
-A desktop-first information library designed around a user-owned folder:
-portable notes, original media, and local search. The goal is to keep your
-library useful without cloud accounts, generative models, or the application.
+A desktop-first, AI-powered self-organising library around a user-owned folder.
+The normal app ships with meaningful compact native local AI, not a cloud service
+or optional AI add-on. Notes, metadata and stored media remain portable without
+the application. Default lossy compression preserves all metadata and can be
+disabled in settings. Web capture is deferred; URL bookmarks remain supported.
 
 **Status: early development. There is no installable application or production
 release yet.** `develop` is the default development branch; `main` is reserved
@@ -19,6 +21,18 @@ implementation. The initial laws await maintainer approval.
 
 Vault persistence, search, desktop UI, and model integration are not implemented.
 See [architecture](docs/architecture.md) for the intended system and boundaries.
+
+## System wiki and execution plan
+
+- [How the system works](docs/wiki/README.md): plain-English workflows and
+  technical contracts.
+- [Ordered implementation tasks](docs/implementation/README.md): GitHub issues,
+  prerequisites, acceptance criteria and handoffs.
+- [Pending decisions and recommendations](docs/implementation/DECISIONS.md):
+  owner approvals required before gated work.
+
+The task system describes planned work, not delivered capabilities. Implement
+ready slices from `develop`; keep optional future features out of earlier tasks.
 
 ## Verify
 
@@ -53,4 +67,5 @@ Keep public reviews self-contained and free of private planning information.
 
 ## License
 
-Licensed under the [MIT License](LICENSE).
+Licensed under the [MIT License](LICENSE). Third-party model weights, codecs and runtimes
+retain their separate distribution requirements.

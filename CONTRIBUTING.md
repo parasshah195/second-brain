@@ -6,11 +6,13 @@ Submit only code you have the right to contribute under those terms.
 
 ## Proposing work
 
-Discuss a proposal with the maintainer through their
-[GitHub profile](https://github.com/parasshah195) before implementing a large
-change. Maintainers translate agreed work into public code reviews.
-GitHub Issues are not used. Pull request discussions must stand alone without
-access to private maintainer tools or documents.
+Use [GitHub Issues](https://github.com/parasshah195/second-brain/issues) and the
+[execution plan](docs/implementation/README.md) to agree on a ready slice before
+implementing a large change. Check its prerequisites and decision gates, then
+record scope, blockers and actual verification in the issue and pull request.
+Public discussions must stand alone without access to private maintainer tools
+or documents. Report security vulnerabilities through the private process in
+`SECURITY.md`, not a public issue.
 
 ## Development
 
