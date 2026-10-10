@@ -8,7 +8,8 @@ None. Merge the reviewed planning documentation before implementation begins.
 
 ## Decision gates
 D01 behavioral-rule review, initial D03 AI-powered scope, D04 compression details
-and D05 deletion policy. MIT licensing and the default compression mode are settled.
+and D05 deletion policy. MIT licensing and original-byte preservation by default
+with optional lossless compression disabled by default are settled.
 D02 adoption follows the separate T01 spike; exact model/mobile/sync approvals
 are not conditions for closing this startup subset.
 
@@ -28,8 +29,10 @@ live inexpensive lexical/filter parsing, and automatic generated tags that
 never overwrite or remove custom tags. Keep these settled requirements intact.
 Native local AI ships as core functionality, selected for measured organisation
 quality and minimal useful footprint/latency. Model-free behavior is recovery,
-not a completed release. Lossy compression defaults on with all metadata intact
-and a disable setting. Web capture is deferred; ordinary URL bookmarks remain.
+not a completed release. Exact original-file/source-byte preservation is the
+default; optional lossless compression is disabled by default and preserves all
+metadata, decoded content and familiar formats. No canonical lossy compression
+is approved. Web capture is deferred; ordinary URL bookmarks remain.
 
 ## Implementation scope
 1. Review the wiki and decision register with the owner. Record selections in
@@ -40,8 +43,10 @@ and a disable setting. Web capture is deferred; ordinary URL bookmarks remain.
 3. Select the first desktop platform/versions, content types, query/content
    languages and named AI-powered capability slice. Development foundations may
    precede core integration, but release requires bundled AI and useful quality.
-4. Record lossy-on default/all-metadata preservation/disable-setting decisions.
-   Resolve supported profiles and validation, not whether the default is lossy.
+4. Record original-byte default/optional-lossless-disabled/all-metadata,
+   decoded-content and familiar-format preservation decisions. Resolve supported
+   profiles and validation, not whether canonical lossy compression is approved
+   (it is not).
 5. Resolve delete/restore/purge semantics before destructive implementation.
    Recommend app Trash, confirmed manual purge and no automatic expiry.
 6. Identify later approvals by task rather than forcing all D01–D13 closed now.
@@ -51,7 +56,7 @@ and a disable setting. Web capture is deferred; ordinary URL bookmarks remain.
 - [ ] Owner selections, rationale and affected tasks are publicly recorded.
 - [ ] MIT is recorded as settled; exact draft behavioral-rule status is explicit.
 - [ ] First-slice platforms, content/languages and deferred features are listed.
-- [ ] Default lossy compression/settings/metadata policy and deletion recovery are unambiguous.
+- [ ] Original-byte default/optional-lossless settings/metadata and decoded-content policy and deletion recovery are unambiguous.
 - [ ] Pending later decisions stay marked pending; no signing secrets are recorded.
 
 ## Validation

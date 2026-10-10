@@ -19,8 +19,10 @@ Captures stores per-item HTML and a resource manifest linking shared hash-addres
 
 Only the Bend metadata rule and proofs exist today. Imported snapshots are untrusted, inert, unprivileged, network-denied, and isolated from Tauri host commands. No extension or headless browser is required.
 
-When later implemented, resource ingestion follows the effective default lossy
-compression policy with all metadata preserved and its disable setting.
+When later implemented, resource ingestion preserves exact source bytes by default.
+Optional lossless compression is disabled by default and preserves all metadata,
+decoded content and familiar formats. Unsupported, unverifiable, non-saving and
+signed inputs retain exact input bytes; no retroactive recompression.
 Shared resource blobs survive while referenced. Durable recovery applies.
 
 ## Implementation scope

@@ -5,8 +5,10 @@
 A desktop-first, AI-powered self-organising library around a user-owned folder.
 The normal app ships with meaningful compact native local AI, not a cloud service
 or optional AI add-on. Notes, metadata and stored media remain portable without
-the application. Default lossy compression preserves all metadata and can be
-disabled in settings. Web capture is deferred; URL bookmarks remain supported.
+the application. Exact original-file/source-byte preservation is the default.
+Optional lossless compression is disabled by default and must preserve all
+metadata, decoded content and familiar formats. No canonical lossy compression
+is approved. Web capture is deferred; URL bookmarks remain supported.
 
 **Status: early development. There is no installable application or production
 release yet.** `develop` is the default development branch; `main` is reserved

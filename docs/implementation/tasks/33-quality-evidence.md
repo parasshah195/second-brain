@@ -6,7 +6,7 @@ Desktop qualification. Begin only after the preceding capabilities exist and the
 
 ## Depends on
 
-T17, T18, T19, T22, T24, T27, T32. Their observable contracts supply the desktop test oracle, including default compression and required core AI; this task cannot substitute invented behavior for missing implementations.
+T17, T18, T19, T22, T24, T27, T32. Their observable contracts supply the desktop test oracle, including original-byte/optional-lossless storage and required core AI; this task cannot substitute invented behavior for missing implementations.
 
 ## Decision gates
 
@@ -38,7 +38,7 @@ Core local AI organisation, relevance, precision, coverage and the offline bundl
 - [ ] Saving never waits for enrichment; automatic local organisation runs after save without Enter. Absent/corrupt core models produce visibly degraded usable recovery and actionable repair.
 - [ ] Independent held-out fixtures meet approved organisation precision, recall, coverage/abstention, relevance and latency gates on supported hardware, including native CPU fallback; all-abstention cannot pass.
 - [ ] Healthy bundled-core offline workflows and additional no-model recovery workflows both pass.
-- [ ] Core quality/relevance gates pass on actual stored default-lossy-compressed content, not only pristine inputs; all metadata remains faithful. The compression-off setting preserves input bytes; failure retains input, and no spontaneous retroactive vault recompression occurs.
+- [ ] Core quality/relevance gates pass on default original content and actual optional losslessly stored content; all metadata, decoded content and familiar formats remain faithful. Exact original-file/source-byte preservation is the default, with optional lossless compression disabled by default. Unsupported, unverifiable, non-saving and signed inputs retain exact input bytes; no canonical lossy compression or retroactive vault recompression is approved.
 - [ ] Every failure has severity, reproducible evidence, disposition, and owner.
 - [ ] Regressions trigger investigation and fixes rather than silently relaxed SLOs.
 - [ ] Accessibility and security gaps remain visible release blockers where applicable.

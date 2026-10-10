@@ -11,8 +11,10 @@ The plan covers the full system, not features already delivered or a commitment
 to ship the whole vision in the first release.
 
 **Confirmed release premise:** native compact local AI and automatic organisation
-are required and bundled. Lossy compression defaults on, preserves all metadata
-and has a disable setting. Web capture is later work. Model-free operation is
+are required and bundled. Exact original-file/source-byte preservation is the
+default; optional lossless compression is disabled by default and preserves all
+metadata, decoded content and familiar formats. No canonical lossy compression
+is approved. Web capture is later work. Model-free operation is
 safe degraded recovery or an incomplete milestone, not a complete release.
 
 ## Readiness and execution
@@ -42,8 +44,9 @@ not an unnecessary single-agent queue.
 Each task's `Depends on` section lists hard prerequisites. Conditional capabilities
 are described in its scope: the release owner adds them as blocking prerequisites
 when selecting that capability. Core AI, automatic organisation and validated
-default compression are hard release prerequisites. Unselected capture,
-specialised media/generation, mobile or sync do not block the current release.
+original-byte/optional-lossless storage are hard release prerequisites.
+Unselected capture, specialised media/generation, mobile or sync do not block
+the current release.
 
 ## Suggested execution lanes
 
@@ -52,7 +55,7 @@ specialised media/generation, mobile or sync do not block the current release.
 | Startup | T00–T01 | Approved first slice and evidenced Bend/native route |
 | Foundation | T02–T08 | Portable contracts, durable imports, external reconciliation, safe deletion |
 | Ordinary retrieval | T09–T13 | Local extraction, rebuildable FTS, typed queries and authored state |
-| Desktop slices | T14–T19 | Spaces, reminders, development UI, previews and default metadata-safe lossy compression |
+| Desktop slices | T14–T19 | Spaces, reminders, development UI, previews and original-byte storage with optional lossless compression |
 | Deferred capture | T20–T21 | Later snapshot/viewer and browser-capture work; not current prerequisites |
 | Required local AI | T22–T25, T27 | Bundled compact core, compatible representations, Enter/RRF and automatic organisation |
 | Scoped extra capabilities | T26, T28–T31 | OCR, media, generation and Explore as selected |
@@ -93,7 +96,7 @@ same execution specification with public dependency links.
 | T16 | [Desktop shell](tasks/16-desktop-shell.md) | [#25](https://github.com/parasshah195/second-brain/issues/25) |
 | T17 | [Library interaction UI](tasks/17-library-interaction-ui.md) | [#26](https://github.com/parasshah195/second-brain/issues/26) |
 | T18 | [Preview, colour and geometry](tasks/18-preview-colour-geometry.md) | [#27](https://github.com/parasshah195/second-brain/issues/27) |
-| T19 | [Default lossy compression](tasks/19-default-lossy-compression.md) | [#28](https://github.com/parasshah195/second-brain/issues/28) |
+| T19 | [Optional lossless compression](tasks/19-optional-lossless-compression.md) | [#28](https://github.com/parasshah195/second-brain/issues/28) |
 | T20 | [Imported web snapshots](tasks/20-imported-web-snapshots.md) | [#29](https://github.com/parasshah195/second-brain/issues/29) |
 | T21 | [Managed browser capture](tasks/21-managed-browser-capture.md) | [#30](https://github.com/parasshah195/second-brain/issues/30) |
 | T22 | [Bundled core AI lifecycle](tasks/22-local-model-packs.md) | [#31](https://github.com/parasshah195/second-brain/issues/31) |
