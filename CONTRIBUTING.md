@@ -1,8 +1,7 @@
 # Contributing
 
 Second Brain is in early development and has no production release.
-Contributions are accepted under the project's
-[MIT License](https://github.com/parasshah195/second-brain/blob/develop/LICENSE).
+Contributions are accepted under the project's [MIT License](LICENSE).
 Submit only code you have the right to contribute under those terms.
 
 ## Proposing work

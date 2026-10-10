@@ -67,6 +67,5 @@ Keep public reviews self-contained and free of private planning information.
 
 ## License
 
-Licensed under the [MIT License](https://github.com/parasshah195/second-brain/blob/develop/LICENSE),
-already committed on `develop`. Third-party model weights, codecs and runtimes
+Licensed under the [MIT License](LICENSE). Third-party model weights, codecs and runtimes
 retain their separate distribution requirements.
